@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const productData = [
     {
         id: 1,
@@ -56,6 +58,7 @@ const productData = [
 ]
 
 const HomePageProductCard = () => {
+    const navigate = useNavigate();
     return (
         <div className="mt-10">
             <div className="">
@@ -71,6 +74,7 @@ const HomePageProductCard = () => {
                                 <div key={index} className="p-5 w-full md:w-1/3">
                                     <div className="h-full border border-gray-300 overflow-hidden shadow-md cursor-pointer">
                                             <img
+                                                onClick={()=> navigate('/productinfo')}
                                                 className="lg:h-60 w-full"
                                                 src={image}
                                             />
@@ -79,7 +83,7 @@ const HomePageProductCard = () => {
                                                 {title.substring(0, 25)}
                                             </h1>
                                             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                                                €{price}
+                                                € {price}
                                             </h1>
 
                                             <div className="flex justify-center ">
