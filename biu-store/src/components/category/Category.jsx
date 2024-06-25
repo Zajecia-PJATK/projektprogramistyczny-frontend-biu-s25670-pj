@@ -17,12 +17,12 @@ const Category = () => {
     return (
         <div>
             <div className="flex flex-col mt-5">
-                <div className="lg:justify-center">
+                <div className="flex overflow-x-scroll lg:justify-center  hide-scroll-bar">
                     <div className="flex ">
                         {category.map((item, index) => {
                             return (
                                 <div key={index} className="px-3 lg:px-12">
-                                    <div className="w-32 h-32 lg:w-48 lg:h-20 max-w-xs bg-gray-500 transition-all hover:bg-blue-800 cursor-pointer" >
+                                    <div className="w-32 h-32 lg:w-48 lg:h-20 max-w-xs bg-gray-200 transition-all hover:bg-blue-800 cursor-pointer" >
                                         <div className="flex justify-center mb-15">
                                             <img src={item.image} />
                                         </div>
@@ -36,6 +36,7 @@ const Category = () => {
                 </div>
             </div>
 
+            <style dangerouslySetInnerHTML={{ __html: ".hide-scroll-bar {  -ms-overflow-style: none;  scrollbar-width: none;}.hide-scroll-bar::-webkit-scrollbar {  display: none;}" }} />
         </div>
     );
 }
