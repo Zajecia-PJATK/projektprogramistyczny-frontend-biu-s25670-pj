@@ -7,6 +7,11 @@ const Navbar = () => {
             <li>
                 <Link to={'/'}>Home</Link>
             </li>
+            <li>
+                <Link to={'/cart'}>
+                    Cart (0)
+                </Link>
+            </li>
         </ul>
     )
     return (
