@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
-
 const Navbar = () => {
     const navList = (
         <ul className="flex space-x-5 text-white font-medium text-md px-5 ">
@@ -11,7 +10,7 @@ const Navbar = () => {
         </ul>
     )
     return (
-        <nav className="bg-gray-900 sticky top-0 px-5">
+        <nav className="bg-black sticky top-0 px-5">
             <div className="lg:flex lg:justify-between items-center py-3 lg:px-3 ">
                 <div className="left py-3 lg:py-0">
                     <Link to={'/'}>
