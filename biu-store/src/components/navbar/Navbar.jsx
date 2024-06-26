@@ -8,8 +8,23 @@ const Navbar = () => {
                 <Link to={'/'}>Home</Link>
             </li>
             <li>
+                <Link to={'/allproduct'}>All Product</Link>
+            </li>
+            <li>
+                <Link to={'/signup'}>Sign Up</Link>
+            </li>
+            <li>
+                <Link to={'/user-dashboard'}>Mateusz</Link>
+            </li>
+            <li>
+                <Link to={'/admin-dashboard'}>Admin</Link> {/* Admin Dashboard */}
+            </li>
+            {/* logout */}
+            {/* <li>
+            </li> */}
+            <li>
                 <Link to={'/cart'}>
-                    Cart (0)
+                Cart (0)
                 </Link>
             </li>
         </ul>
