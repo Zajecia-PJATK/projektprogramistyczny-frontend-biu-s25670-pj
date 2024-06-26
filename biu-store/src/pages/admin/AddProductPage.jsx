@@ -19,12 +19,10 @@ const categoryList = [
 
 const AddProductPage = () => {
     const context = useContext(myContext);
-    const { loading, setLoading } = context;
+    const { setLoading } = context;
 
-    // navigate 
     const navigate = useNavigate();
 
-    // product state
     const [product, setProduct] = useState({
         title: "",
         price: "",
@@ -44,23 +42,23 @@ const AddProductPage = () => {
     });
 
 
-    // Add Product Function
+    // Add Product
     const addProductFunction = async () => {
         if (product.title == "" || product.price == "" || product.productImageUrl == "" || product.category == "" || product.description == "") {
-            return toast.error("all fields are required")
+            return toast.error("All Fields Are Required")
         }
 
         setLoading(true);
         try {
             const productRef = collection(fireDB, 'products');
             await addDoc(productRef, product)
-            toast.success("Add product successfully");
+            toast.success("Product Has Been Successfully Added");
             navigate('/admin-dashboard')
             setLoading(false)
         } catch (error) {
             console.log(error);
             setLoading(false)
-            toast.error("Add product failed");
+            toast.error("Adding Product Failed");
         }
 
     }
@@ -134,7 +132,7 @@ const AddProductPage = () => {
                                     category: e.target.value
                                 })
                             }}
-                            className="w-full px-1 py-2 border border-gray-200 rounded-md outline-none  ">
+                            className="w-full px-1 py-2 border border-gray-200 rounded-md outline-none">
                             <option disabled>Select Product Category</option>
                             {categoryList.map((value, index) => {
                                 const { name } = value
@@ -154,19 +152,19 @@ const AddProductPage = () => {
                                     ...product,
                                     description: e.target.value
                                 })
-                            }} name="description" placeholder="Description" rows="5" className=" w-full px-2 py-1 border border-gray-200 rounded-md outline-none placeholder-gray-400 ">
+                            }} name="description" placeholder="Description" rows="5" className=" w-full px-2 py-1 border border-gray-200 rounded-md outline-none placeholder-gray-400">
 
                         </textarea>
                     </div>
 
-                    {/* Add Product Button  */}
+                    {/* Add Button  */}
                     <div className="mb-3">
                         <button
                             onClick={addProductFunction}
                             type='button'
-                            className='bg-black hover:bg-blue-800 w-full text-white text-center py-2 font-bold rounded-md '
+                            className='bg-black hover:bg-blue-800 w-full text-white text-center py-2 font-bold rounded-md'
                         >
-                            Add Product
+                            Add
                         </button>
                     </div>
                 </div>
