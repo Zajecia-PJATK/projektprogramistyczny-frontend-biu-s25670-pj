@@ -8,10 +8,8 @@ import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 
 const HomePageProductCard = () => {
     const navigate = useNavigate();
-
     const context = useContext(myContext);
     const { getAllProduct } = context;
-
     const cartItems = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
@@ -28,7 +26,6 @@ const HomePageProductCard = () => {
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
     }, [cartItems])
-
 
     return (
         <div className="mt-10">

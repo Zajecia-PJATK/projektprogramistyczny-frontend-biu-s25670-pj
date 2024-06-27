@@ -7,8 +7,8 @@ import { useState } from "react";
 
 const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
     const [open, setOpen] = useState(false);
-
     const handleOpen = () => setOpen(!open);
+    
     return (
         <>
             <Button

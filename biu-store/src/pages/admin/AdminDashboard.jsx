@@ -8,30 +8,30 @@ import myContext from '../../context/myContext';
 const AdminDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));
     const context = useContext(myContext);
-    const {getAllProduct} = context;
+    const { getAllProduct, getAllOrder, getAllUser } = context;
 
     return (
         <div>
             <div className="top mb-5 px-5 mt-5">
-                    <h1 className=" text-center text-2xl font-bold">Admin Dashboard</h1>
+                <h1 className=" text-center text-2xl font-bold">Admin Dashboard</h1>
             </div>
 
             <div className="px-5">
                 <div className="mid mb-5">
-                        <div className="">
-                            <h1 className=" text-center text-lg">
-                                <span className=" font-bold">Name: </span>
-                                {user?.name}
-                            </h1>
-                            <h1 className=" text-center text-lg">
-                                <span className=" font-bold">Email: </span>
-                                {user?.email}
-                            </h1>
-                            <h1 className=" text-center text-lg">
-                                <span className=" font-bold">Since: </span>
-                                {user?.date}
-                            </h1>
-                        </div>
+                    <div className="">
+                        <h1 className=" text-center text-lg">
+                            <span className=" font-bold">Name: </span>
+                            {user?.name}
+                        </h1>
+                        <h1 className=" text-center text-lg">
+                            <span className=" font-bold">Email: </span>
+                            {user?.email}
+                        </h1>
+                        <h1 className=" text-center text-lg">
+                            <span className=" font-bold">Since: </span>
+                            {user?.date}
+                        </h1>
+                    </div>
                 </div>
 
                 <div className="">
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
                                             <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" />
                                         </svg>
                                     </div>
-                                    <h2 className="title-font font-medium text-3xl fonts1" >10</h2>
+                                    <h2 className="title-font font-medium text-3xl fonts1" >{getAllOrder.length}</h2>
                                     <p className="font-bold" >Total Orders</p>
                                 </div>
                             </Tab>
@@ -117,22 +117,22 @@ const AdminDashboard = () => {
                                         </svg>
 
                                     </div>
-                                    <h2 className="title-font font-medium text-3xl fonts1" >10</h2>
+                                    <h2 className="title-font font-medium text-3xl fonts1" >{getAllUser.length}</h2>
                                     <p className="font-bold" >Total Users</p>
                                 </div>
                             </Tab>
                         </TabList>
 
                         <TabPanel>
-                            <ProductDetail/>
+                            <ProductDetail />
                         </TabPanel>
 
                         <TabPanel>
-                            <OrderDetail/>
+                            <OrderDetail />
                         </TabPanel>
 
                         <TabPanel>
-                            <UserDetail/>
+                            <UserDetail />
                         </TabPanel>
                     </Tabs>
                 </div>

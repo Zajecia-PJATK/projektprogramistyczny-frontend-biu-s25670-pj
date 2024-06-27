@@ -37,7 +37,8 @@ const Category = () => {
                     </div>
                 </div>
             </div>
-            <style dangerouslySetInnerHTML={{ __html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .hide-scroll-bar {
                     -ms-overflow-style: none;
                     scrollbar-width: none;

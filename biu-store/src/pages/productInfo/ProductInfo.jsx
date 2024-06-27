@@ -14,7 +14,6 @@ const ProductInfo = () => {
     const [product, setProduct] = useState('')
     const { id } = useParams()
 
-    // getProductData
     const getProductData = async () => {
         setLoading(true)
         try {
@@ -32,12 +31,12 @@ const ProductInfo = () => {
 
     const addCart = (item) => {
         dispatch(addToCart(item));
-        toast.success("Add to cart")
+        toast.success("Added To Cart")
     }
 
     const deleteCart = (item) => {
         dispatch(deleteFromCart(item));
-        toast.success("Delete cart")
+        toast.success("Deleted From Cart")
     }
 
     useEffect(() => {
@@ -185,7 +184,7 @@ const ProductInfo = () => {
                         </div>
                     </div>
                 </div>
-        </section>
+            </section>
         </Layout >
     );
 }

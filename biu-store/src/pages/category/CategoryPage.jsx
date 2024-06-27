@@ -10,17 +10,12 @@ const CategoryPage = () => {
     const { categoryname } = useParams();
     const context = useContext(myContext);
     const { getAllProduct, loading } = context;
-
     const navigate = useNavigate();
-
     const filterProduct = getAllProduct.filter((obj) => obj.category.includes(categoryname))
-
-
     const cartItems = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     const addCart = (item) => {
-        // console.log(item)
         dispatch(addToCart(item));
         toast.success("Add to cart")
     }
@@ -30,20 +25,16 @@ const CategoryPage = () => {
         toast.success("Delete cart")
     }
 
-    // console.log(cartItems)
-
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
     }, [cartItems])
+    
     return (
         <Layout>
             <div className="mt-10">
-                {/* Heading  */}
                 <div className="">
                     <h1 className=" text-center mb-5 text-2xl font-semibold first-letter:uppercase">{categoryname}</h1>
                 </div>
-
-                {/* main  */}
                 {loading ?
                     <>
                         <div className="flex justify-center">
@@ -108,9 +99,9 @@ const CategoryPage = () => {
 
                                         <div>
                                             <div className="flex justify-center">
-                                                <img className=" mb-2" src="https://cdn-icons-png.flaticon.com/128/2748/2748614.png" alt="" />
+                                                <img className=" mb-2" src="https://www.tokyo-marui.co.jp/common/images/ic_footer_02.png" />
                                             </div>
-                                            <h1 className=" text-black text-xl">No {categoryname} product found</h1>
+                                            <h1 className=" text-black text-xl">Nothing found in {categoryname}</h1>
                                         </div>
                                     }
                                 </div>
