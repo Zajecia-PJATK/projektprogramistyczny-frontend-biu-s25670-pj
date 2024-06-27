@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import { useSelector } from "react-redux";
+
 const Navbar = () => {
     // get user from localStorage 
     const user = JSON.parse(localStorage.getItem('users'));
@@ -14,15 +15,19 @@ const Navbar = () => {
         navigate("/login")
     }
 
+    // CartItems
+    const cartItems = useSelector((state) => state.cart);
+
+    // navList Data
     const navList = (
-        <ul className="flex space-x-5 text-white font-medium text-md px-5 ">
-           {/* Home */}
-           <li>
+        <ul className="flex space-x-3 text-white font-medium text-md px-5 ">
+            {/* Home */}
+            <li>
                 <Link to={'/'}>Home</Link>
             </li>
             {/* All Product */}
             <li>
-                <Link to={'/allproduct'}>All Product</Link>
+                <Link to={'/allproduct'}>All Products</Link>
             </li>
             {/* Signup */}
             {!user ? <li>
@@ -34,20 +39,19 @@ const Navbar = () => {
             </li> : ""}
             {/* User */}
             {user?.role === "user" && <li>
-                <Link to={'/user-dashboard'}>{user?.name}</Link>
+                <Link to={'/user-dashboard'}>User</Link>
             </li>}
             {/* Admin */}
             {user?.role === "admin" && <li>
-                <Link to={'/admin-dashboard'}>{user?.name}</Link>
+                <Link to={'/admin-dashboard'}>Admin</Link>
             </li>}
             {/* logout */}
             {user && <li className=" cursor-pointer" onClick={logout}>
-                Logout
             </li>}
             {/* Cart */}
             <li>
                 <Link to={'/cart'}>
-                    Cart (0)
+                    Cart({cartItems.length})
                 </Link>
             </li>
         </ul>
@@ -57,7 +61,7 @@ const Navbar = () => {
             <div className="lg:flex lg:justify-between items-center py-3 lg:px-3 ">
                 <div className="left py-3 lg:py-0">
                     <Link to={'/'}>
-                    <h2 className=" font-bold text-white text-2xl text-center">AirStore</h2>
+                        <h2 className=" font-bold text-white text-2xl text-center">AirStore</h2>
                     </Link>
                 </div>
 
