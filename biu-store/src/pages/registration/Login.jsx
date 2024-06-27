@@ -10,10 +10,8 @@ const Login = () => {
     const context = useContext(myContext);
     const { loading, setLoading } = context;
 
-    // navigate 
     const navigate = useNavigate();
 
-    // User Signup State 
     const [userLogin, setUserLogin] = useState({
         email: "",
         password: ""
@@ -37,16 +35,16 @@ const Login = () => {
                 const data = onSnapshot(q, (QuerySnapshot) => {
                     let user;
                     QuerySnapshot.forEach((doc) => user = doc.data());
-                    localStorage.setItem("users", JSON.stringify(user) )
+                    localStorage.setItem("users", JSON.stringify(user))
                     setUserLogin({
                         email: "",
                         password: ""
                     })
                     toast.success("Login Successfully");
                     setLoading(false);
-                    if(user.role === "user") {
+                    if (user.role === "user") {
                         navigate('/user-dashboard');
-                    }else{
+                    } else {
                         navigate('/admin-dashboard');
                     }
                 });
@@ -119,7 +117,7 @@ const Login = () => {
                 </div>
 
                 <div>
-                    <h2 className='text-black'>Don't Have an account? <Link className=' text-blue-800 font-bold' to={'/signup'}>Sign Up</Link></h2>
+                    <h2 className='text-black'>Don't have an account? <Link className=' text-blue-800 font-bold' to={'/signup'}>Sign Up</Link></h2>
                 </div>
 
             </div>

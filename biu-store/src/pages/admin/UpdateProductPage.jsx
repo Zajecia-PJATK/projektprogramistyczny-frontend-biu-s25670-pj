@@ -7,13 +7,13 @@ import toast from "react-hot-toast";
 
 const categoryList = [
     {
-        name: 'rifle'
+        name: 'Rifles'
     },
     {
-        name: 'sniper'
+        name: 'Snipers'
     },
     {
-        name: 'pistol'
+        name: 'Pistols'
     }
 ]
 
@@ -40,7 +40,6 @@ const UpdateProductPage = () => {
         )
     });
 
-    // Get Single Product Function
     const getSingleProductFunction = async () => {
         setLoading(true);
         try {
@@ -53,7 +52,7 @@ const UpdateProductPage = () => {
                 productImageUrl: product?.productImageUrl,
                 category: product?.category,
                 description: product?.description,
-                quantity : product?.quantity,
+                quantity: product?.quantity,
                 time: product?.time,
                 date: product?.date
             })

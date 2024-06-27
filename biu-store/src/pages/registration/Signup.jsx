@@ -8,12 +8,10 @@ import toast from "react-hot-toast";
 
 const Signup = () => {
     const context = useContext(myContext);
-    const {loading, setLoading } = context;
+    const { loading, setLoading } = context;
 
-    // navigate 
     const navigate = useNavigate();
 
-    // User Signup State 
     const [userSignup, setUserSignup] = useState({
         name: "",
         email: "",
@@ -31,7 +29,6 @@ const Signup = () => {
         try {
             const users = await createUserWithEmailAndPassword(auth, userSignup.email, userSignup.password);
 
-            // create user object
             const user = {
                 name: userSignup.name,
                 email: users.user.email,
@@ -51,7 +48,6 @@ const Signup = () => {
             // create user Refrence
             const userRefrence = collection(fireDB, "user")
 
-            // Add User Detail
             addDoc(userRefrence, user);
 
             setUserSignup({
