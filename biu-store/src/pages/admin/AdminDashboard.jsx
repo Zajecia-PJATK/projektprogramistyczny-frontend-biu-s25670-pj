@@ -2,9 +2,13 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProductDetail from '../../components/admin/ProductDetail';
 import OrderDetail from '../../components/admin/OrderDetail';
 import UserDetail from '../../components/admin/UserDetail';
+import { useContext } from 'react';
+import myContext from '../../context/myContext';
 
 const AdminDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));
+    const context = useContext(myContext);
+    const {getAllProduct} = context;
 
     return (
         <div>
@@ -15,17 +19,14 @@ const AdminDashboard = () => {
             <div className="px-5">
                 <div className="mid mb-5">
                         <div className="">
-                            {/* Name  */}
                             <h1 className=" text-center text-lg">
                                 <span className=" font-bold">Name: </span>
                                 {user?.name}
                             </h1>
-                            {/* Email  */}
                             <h1 className=" text-center text-lg">
                                 <span className=" font-bold">Email: </span>
                                 {user?.email}
                             </h1>
-                            {/* Date  */}
                             <h1 className=" text-center text-lg">
                                 <span className=" font-bold">Since: </span>
                                 {user?.date}
@@ -61,7 +62,7 @@ const AdminDashboard = () => {
                                         </svg>
 
                                     </div>
-                                    <h2 className="title-font font-medium text-3xl fonts1" >10</h2>
+                                    <h2 className="title-font font-medium text-3xl fonts1" >{getAllProduct.length}</h2>
                                     <p className="font-bold" >Total Products</p>
                                 </div>
                             </Tab>

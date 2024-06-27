@@ -7,13 +7,13 @@ import { useNavigate } from "react-router";
 
 const categoryList = [
     {
-        name: 'rifle'
+        name: 'Rifles'
     },
     {
-        name: 'sniper'
+        name: 'Snipers'
     },
     {
-        name: 'pistol'
+        name: 'Pistols'
     }
 ]
 

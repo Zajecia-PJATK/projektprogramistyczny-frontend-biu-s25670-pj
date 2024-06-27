@@ -7,13 +7,13 @@ import toast from "react-hot-toast";
 
 const categoryList = [
     {
-        name: 'rifle'
+        name: 'Rifles'
     },
     {
-        name: 'sniper'
+        name: 'Snipers'
     },
     {
-        name: 'pistol'
+        name: 'Pistols'
     }
 ]
 

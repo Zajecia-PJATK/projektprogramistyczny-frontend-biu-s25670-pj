@@ -1,12 +1,31 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import myContext from "../../context/myContext";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 
 const HomePageProductCard = () => {
     const navigate = useNavigate();
 
     const context = useContext(myContext);
     const {getAllProduct} = context;
+
+    const cartItems = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const addCart = (item) => {
+        // console.log(item)
+        dispatch(addToCart(item));
+        toast.success("Add to cart")
+    }
+
+    const deleteCart = (item) => {
+        dispatch(deleteFromCart(item));
+        toast.success("Delete cart")
+    }
+
+
     return (
         <div className="mt-10">
             <div className="">
@@ -33,7 +52,7 @@ const HomePageProductCard = () => {
                                             </h1>
 
                                             <div className="flex justify-center ">
-                                                <button className="bg-gray-900 hover:bg-blue-800 w-full text-white py-[10px] rounded-lg font-bold">
+                                                <button onClick={() => addCart(item)} className="bg-gray-900 hover:bg-blue-800 w-full text-white py-[10px] rounded-lg font-bold">
                                                     Add To Cart
                                                 </button>
                                             </div>

@@ -4,7 +4,6 @@ import HeroSection from "../../components/heroSection/HeroSection";
 import HomePageProductCard from "../../components/homePageProductCard/HomePageProductCard";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/myContext";
-import { Loader } from "lucide-react";
 
 const HomePage = () => {
     const context = useContext(myContext);
